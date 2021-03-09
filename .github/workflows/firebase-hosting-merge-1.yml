@@ -11,6 +11,7 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           entrypoint: /home/runner/work/unique-sso/unique-sso/sandbox.blue-portal.site
+          target: production
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UNIQUE_SSO_PROD }}'
           channelId: live
