@@ -7,19 +7,13 @@
       "hosting": {
         "production": [
           "sandbox-blue-portal-site"
-        ],
-        "staging": [
-          "unique-sso-staging"
         ]
       }
     },
     "unique-sso-staging": {
       "hosting": {
-        "production": [
-          "unique-sso-prod"
-        ],
         "staging": [
-          "unique-sso-staging"
+          "staging-blue-portal-site"
         ]
       }
     }
