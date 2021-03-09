@@ -2,7 +2,6 @@
   "hosting": [
     {
       "target": "production",
-      "site": "sandbox-blue-portal-site",
       "public": "public",
       "ignore": [
         "firebase.json",
@@ -12,7 +11,6 @@
     },
     {
       "target": "staging",
-      "site": "staging-blue-portal-site",
       "public": "public",
       "ignore": [
         "firebase.json",
