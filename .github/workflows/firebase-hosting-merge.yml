@@ -9,6 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm ci && npm run build
+        with:
+          entrypoint: /home/runner/work/unique-sso/unique-sso/sandbox.blue-portal.site
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           entrypoint: /home/runner/work/unique-sso/unique-sso/sandbox.blue-portal.site
