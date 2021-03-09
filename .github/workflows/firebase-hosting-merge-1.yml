@@ -18,3 +18,13 @@ jobs:
           projectId: unique-sso-prod
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          entrypoint: /home/runner/work/unique-sso/unique-sso/sandbox.blue-portal.site
+          target: staging
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UNIQUE_SSO_STAGING }}'
+          channelId: live
+          projectId: unique-sso-prod
+        env:
+          FIREBASE_CLI_PREVIEWS: hostingchannels
