@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "sandbox-blue-portal-site",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
