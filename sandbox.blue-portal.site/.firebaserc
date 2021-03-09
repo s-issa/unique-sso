@@ -6,7 +6,7 @@
     "unique-sso-prod": {
       "hosting": {
         "production": [
-          "unique-sso-prod"
+          "sandbox-blue-portal-site"
         ],
         "staging": [
           "unique-sso-staging"
