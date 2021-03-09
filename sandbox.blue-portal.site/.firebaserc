@@ -1,7 +1,6 @@
 {
   "projects": {
-    "default": "unique-sso-prod",
-    "staging": "unique-sso-staging"
+    "default": "unique-sso-prod"
   },
   "targets": {
     "unique-sso-prod": {
