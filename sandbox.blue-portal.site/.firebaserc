@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "unique-sso-prod"
+  },
+  "targets": {
+    "unique-sso-prod": {
+      "hosting": {
+        "production": [
+          "unique-sso-prod"
+        ],
+        "staging": [
+          "unique-sso-staging"
+        ]
+      }
+    }
   }
 }
