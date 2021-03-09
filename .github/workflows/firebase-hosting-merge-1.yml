@@ -6,13 +6,33 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    env:
+      STAGING_API_KEY: STAGING_API_KEY
+      PRODUCTION_API_KEY: PRODUCTION_API_KEY
     steps:
       - uses: actions/checkout@v2
-      - name: Find and Replace
+      - name: Update Staging API Key
         uses: jacobtomlinson/gha-find-replace@master
         with:
-          find: "Test"
-          replace: "Mest"
+          find: "API_KEY"
+          replace: env.STAGING_API_KEY
+          include: "index.html"
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          entrypoint: /home/runner/work/unique-sso/unique-sso/sandbox.blue-portal.site
+          target: staging
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UNIQUE_SSO_STAGING }}'
+          channelId: live
+          projectId: unique-sso-staging
+        env:
+          FIREBASE_CLI_PREVIEWS: hostingchannels
+      - uses: actions/checkout@v2
+      - name: Update Production API Key
+        uses: jacobtomlinson/gha-find-replace@master
+        with:
+          find: "API_KEY"
+          replace: env.PRODUCTION_API_KEY
           include: "index.html"
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -22,15 +42,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UNIQUE_SSO_PROD }}'
           channelId: live
           projectId: unique-sso-prod
-        env:
-          FIREBASE_CLI_PREVIEWS: hostingchannels
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          entrypoint: /home/runner/work/unique-sso/unique-sso/sandbox.blue-portal.site
-          target: staging
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UNIQUE_SSO_STAGING }}'
-          channelId: live
-          projectId: unique-sso-staging
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
