@@ -13,6 +13,16 @@
           "unique-sso-staging"
         ]
       }
+    },
+    "unique-sso-staging": {
+      "hosting": {
+        "production": [
+          "unique-sso-prod"
+        ],
+        "staging": [
+          "unique-sso-staging"
+        ]
+      }
     }
   }
 }
